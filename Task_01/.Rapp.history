@@ -1,3 +1,11 @@
 install .packages
 install .packages(”swirl”)
 library(swirl)
+install .packages(”swirl”)
+library(swirl)
+install.packages("swirl")
+rm(list=ls())
+install.packages("swirl")
+install.packages("swirl")
+library(swirl)
+swirl()
