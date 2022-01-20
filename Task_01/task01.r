@@ -1,5 +1,7 @@
 # pat: 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
 #install.packages("swirl")
+
+# This is a comment. R won't read it.
 library(swirl)
 swirl()
 c()
@@ -71,3 +73,64 @@ names(vect2) <- c("foo", "bar", "norf")
 identical(vect, vect2)
 vect["bar"]
 vect[c("foo", "bar")]
+my_vector <- 1:20
+my_vector
+dim(my_vector)
+length(my_vector)
+dim(my_vector) <- c(4, 5)
+dim(my_vector)
+attributes(my_vector)
+class(my_vector)
+my_matrix <- my_vector
+?matrix
+my_matrix2 <- matrix(1:20, 4, 5)
+identical(my_matrix, my_matrix2)
+patients <- c("Bill", "Gina", "Kelly", "Sean")
+cbind(patients, my_matrix)
+my_data <- data.frame(patients, my_matrix)
+class(my_data)
+cnames <- c("patient", "age", "weight", "bp", "rating", "test")
+colnames(my_data) <- cnames
+TRUE == TRUE
+(FALSE == TRUE) == FALSE
+6 == 7 
+6 < 7 
+10 <= 10 
+5 != 7
+!5 == 7
+FALSE & FALSE
+TRUE & c(TRUE, FALSE, FALSE)
+TRUE && c(TRUE, FALSE, FALSE)
+TRUE | c(TRUE, FALSE, FALSE)
+TRUE || c(TRUE, FALSE, FALSE)
+5 > 8 || 6 != 8 && 4 > 3.9 
+isTRUE(6 > 4)
+identical('twins', 'twins')
+xor(5 == 6, !FALSE)
+ints <- sample(10)
+ints >5
+which(c(TRUE, FALSE, TRUE))
+which(ints > 7)
+all(ints > 0)
+Sys.Date()
+mean(c(2, 4, 5))
+data(cars)
+?cars
+head(cars)
+plot(cars)
+?plot
+plot(x = cars$speed, y = cars$dist)
+plot(x= cars$dist, y = cars$speed)
+plot(x = cars$speed, y = cars$dist, xlab = "Speed")
+plot(x = cars$speed, y = cars$dist, xlab = "Speed")
+plot(x = cars$speed, y = cars$dist,  xlab = "Speed", ylab = "Stopping Distance")
+plot(cars, main = "My Plot")
+plot (cars, sub = "My Plot Subtitle")
+plot(cars, col = 2)
+plot(cars, xlim = c(10, 15))
+plot(cars, pch= 2)
+data(mtcars)
+boxplot()
+?boxplot
+boxplot(formula = mpg ~ cyl, data = mtcars)
+hist(mtcars$mpg)
