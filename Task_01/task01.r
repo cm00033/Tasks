@@ -160,3 +160,48 @@ head(berenMilk)
 head(beren2)
 head(beren3)
 write.csv(beren3, 'beren_new.csv', quote = F, row.names = FALSE)
+
+#Question 1: The first hypothesis shows no concrete data that can be referred to quantity of his meals resulting in not enough valuable data.
+# In the second hypothesis the amount of time and the measurements of how or what he drinks are missing. 
+Feeds <- which(beren3$event == "bottle")
+avgMilk <- mean(beren3$value [Feeds])
+tapply()
+avgFeed <- tapply(beren3$value[Feeds], beren3$age[Feeds], mean)
+varFeed <- tapply(beren3$value[Feeds], beren3$age[Feeds], var)
+totalFeed <- tapply(beren3$value[Feeds], beren3$age[Feeds], sum)
+numFeeds <- tapply(beren3$value[Feeds], beren3$age[Feeds],length)
+
+cor() #function that tells the correlation between the set of 2 numbers 
+cor(beren3$value[Feeds], beren3$age[Feeds])
+cor.test() #works like cor but conducts the appropriate test for the type of correlation turns things like a p-value
+cor.test(beren3$value[Feeds], beren3$age[Feeds])
+berenCor<- cor.test(beren3$value[Feeds], beren3$age[Feeds])
+summary(berenCor)
+
+aov() #is the anova function in R 
+t.test() #is the t-Test 
+chi.test() #is the chi squared test
+wilcox.test() #Wilcoxon's test
+ks.test() #Kolmogorov smirnov test 
+# ~  #means as a function of 
+  
+berenANOVA <- aov(beren3$value[Feeds] ~ beren3$caregiver[Feeds])
+boxplot(beren3$value[Feeds] ~ beren3$caregiver[Feeds], xlab = "who gave the bottle", ylab = "amount of milk consumed (oz)")
+par() #function used to know which parameters to use 
+?par
+par(las = 1, mar = c(5, 5, 1, 1), mgp = c(2, 0.5, 0), tck = -0.01)
+plot(as.numeric(names(totalFeed)), totalFeed, type = "b", pch = 16, xlab = "age in days", ylab = "ounces of milk")
+abline(h = mean(totalFeed), lty = 2, col= 'red')
+
+pdf("r02-totalMilkByDay.pdf", height = 4, width = 4)
+par(las = 1, mar = c(5, 5, 1, 1), mgp = c(2, 0.5, 0), tck = -0.01)
+plot(as.numeric(names(totalFeed)), totalFeed, type = "b", pch = 16, xlab = "age in days", ylab= " ounces of milk")
+abline(h = mean(totalFeed), lty = 2, col = 'red')
+dev.off()
+
+#Q.2 The graph does not have units, meaning the graph cannot be interpreted do to the lack of information in variables. 
+source("http://jonsmitchell.com/code/plotFxn02b.R")
+pdf("r02b-cumulativeMilkByTime.pdf")
+unique(beren3$event)
+
+       
